@@ -20,7 +20,7 @@ function AddButton() {
 
 function Layout({ children }) {
   const { read } = useContext(Context);
-  const { authenticate } = useAuthContext();
+  const { authenticate, currentUser } = useAuthContext();
 
   useEffect(() => {
     read();
@@ -30,7 +30,8 @@ function Layout({ children }) {
     <>
       <Navbar />
       <div className="container mt-5">
-        <AddButton />
+        {currentUser && <AddButton />}
+        
         <UploadForm />
         {children}
       </div>
