@@ -7,11 +7,11 @@ import "./App.css";
 function App() {
   const { state, read } = useContext(Context);
   const { authenticate } = useAuthContext();
-  const count = useMemo(() => {
-    return `you have ${state.items.length} image${
-      state.items.length > 1 ? "s" : ""
-    }`;
-  }, [state.items]);
+  // const count = useMemo(() => {
+  //   return `you have ${state.items.length} image${
+  //     state.items.length > 1 ? "s" : ""
+  //   }`;
+  // }, [state.items]);
   useEffect(() => {
     read();
     authenticate();
@@ -19,7 +19,7 @@ function App() {
   return (
     <>
       <h1 className="text-center">Gallery</h1>
-      {count}
+      {/* {count} */}
       <List items={state.items} />
     </>
   );
